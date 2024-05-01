@@ -68,7 +68,7 @@ const LoginModal: React.FC<LoginModalProps> = ({
     >
       <View style={styles.formSheet}>
         <View style={{ alignItems: "center" }}>
-          <Text style={styles.header}>Login here</Text>
+          <Text style={styles.header2}>Login here</Text>
           <TextInput style={styles.textInput} placeholder="Username/ Email" />
           <TextInput style={styles.textInput} placeholder="Password" />
           <Pressable
@@ -102,7 +102,7 @@ const SignupModal: React.FC<LoginModalProps> = ({
     >
       <View style={styles.formSheet}>
         <View style={{ alignItems: "center" }}>
-          <Text style={styles.header}>Create an account here</Text>
+          <Text style={styles.header2}>Create an account here</Text>
           <TextInput style={styles.textInput} placeholder="Email" />
           <TextInput style={styles.textInput} placeholder="Confirm Email" />
           <TextInput style={styles.textInput} placeholder="Select Username" />
