@@ -8,12 +8,18 @@ import {
   Modal,
   TextInput,
 } from "react-native";
-import { useNavigation, Link, router } from "expo-router";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 interface LoginModalProps {
   modalVisible: boolean;
   setModalVisible: Dispatch<SetStateAction<boolean>>;
 }
+
+type PasswordInputProps = {
+  textContentType?: "password" | "newPassword";
+  passwordRules?: string;
+  placeholder?: string;
+};
 
 const LoginButton = () => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -54,6 +60,34 @@ const SignupButton = () => {
   );
 };
 
+const PasswordInput: React.FC<PasswordInputProps> = (props) => {
+  const [showPassword, setShowPassword] = useState(false);
+
+  const toggleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
+  return (
+    <View style={styles.passwordView}>
+      <TextInput
+        style={[styles.textInput, styles.passwordInput]}
+        placeholder={props.placeholder || "Password"}
+        textContentType={props.textContentType || "password"}
+        secureTextEntry={!showPassword}
+        placeholderTextColor={"gray"}
+        {...props}
+      />
+      <MaterialCommunityIcons
+        name={showPassword ? "eye-off" : "eye"}
+        size={24}
+        color="gray"
+        style={styles.icon}
+        onPress={toggleShowPassword}
+      />
+    </View>
+  );
+};
+
 const LoginModal: React.FC<LoginModalProps> = ({
   modalVisible,
   setModalVisible,
@@ -69,8 +103,15 @@ const LoginModal: React.FC<LoginModalProps> = ({
       <View style={styles.formSheet}>
         <View style={{ alignItems: "center" }}>
           <Text style={styles.header2}>Login here</Text>
-          <TextInput style={styles.textInput} placeholder="Username/ Email" />
-          <TextInput style={styles.textInput} placeholder="Password" />
+          <TextInput
+            inputMode="email"
+            style={styles.textInput}
+            placeholder="Username/ Email"
+            textContentType="emailAddress"
+            autoFocus={true}
+            placeholderTextColor={"gray"}
+          />
+          <PasswordInput />
           <Pressable
             style={styles.button}
             onPress={() => setModalVisible(false)}
@@ -103,10 +144,28 @@ const SignupModal: React.FC<LoginModalProps> = ({
       <View style={styles.formSheet}>
         <View style={{ alignItems: "center" }}>
           <Text style={styles.header2}>Create an account here</Text>
-          <TextInput style={styles.textInput} placeholder="Email" />
-          <TextInput style={styles.textInput} placeholder="Confirm Email" />
-          <TextInput style={styles.textInput} placeholder="Select Username" />
-          <TextInput style={styles.textInput} placeholder="Password" />
+          <TextInput
+            inputMode="email"
+            style={styles.textInput}
+            placeholder="Email"
+            textContentType="emailAddress"
+            autoFocus={true}
+            placeholderTextColor={"gray"}
+          />
+          <TextInput
+            style={styles.textInput}
+            placeholder="Select Username"
+            textContentType="username"
+            placeholderTextColor={"gray"}
+          />
+          <PasswordInput
+            textContentType="newPassword"
+            passwordRules="minlength: 10; maxlength: 30; required: lower; required: upper; required: digit; required: [-@_];"
+          />
+          <PasswordInput
+            placeholder="Confirm Password"
+            textContentType="newPassword"
+          />
           <Pressable
             style={styles.button}
             onPress={() => setModalVisible(false)}
@@ -184,10 +243,26 @@ const styles = StyleSheet.create({
   textInput: {
     borderColor: "gray",
     borderWidth: 2,
-    marginTop: 10,
+    margin: 10,
     padding: 10,
     borderRadius: 15,
     width: "100%",
+  },
+  passwordInput: {
+    marginTop: 10,
+    marginBottom: 10,
+    marginLeft: 0,
+    marginRight: 0,
+  },
+  passwordView: {
+    flexDirection: "row",
+    alignItems: "center",
+    width: "100%",
+  },
+  icon: {
+    marginLeft: 10,
+    position: "absolute",
+    right: 10,
   },
   formSheet: {
     backgroundColor: "#fff",
