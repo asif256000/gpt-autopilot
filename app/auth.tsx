@@ -50,7 +50,7 @@ const SignupButton = () => {
         onPress={() => setModalVisible(true)}
         // onPress={() => router.navigate("/auth/login")}
       >
-        <Text style={styles.buttonText}>Signup</Text>
+        <Text style={styles.buttonText}>Create Account</Text>
       </Pressable>
       <SignupModal
         modalVisible={modalVisible}
@@ -170,7 +170,7 @@ const SignupModal: React.FC<LoginModalProps> = ({
             style={styles.button}
             onPress={() => setModalVisible(false)}
           >
-            <Text style={styles.buttonText}>Signup</Text>
+            <Text style={styles.buttonText}>Create Account</Text>
           </Pressable>
         </View>
         <View
