@@ -1,5 +1,12 @@
 import { useState } from "react";
-import { View, TextInput, Pressable, Text } from "react-native";
+import {
+  View,
+  TextInput,
+  Pressable,
+  Text,
+  PressableProps,
+  TextProps,
+} from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { componentStyles, formStyle } from "./CustomStyles";
 
@@ -12,6 +19,8 @@ type PasswordInputProps = {
 interface CustomButtonProps {
   buttonTitle: string;
   onPressFunction: () => void;
+  pressableProps?: PressableProps;
+  textProps?: TextProps;
 }
 
 export const PasswordInput: React.FC<PasswordInputProps> = (props) => {
@@ -45,10 +54,18 @@ export const PasswordInput: React.FC<PasswordInputProps> = (props) => {
 export const CustomButton: React.FC<CustomButtonProps> = ({
   buttonTitle,
   onPressFunction,
+  pressableProps,
+  textProps,
 }) => {
   return (
-    <Pressable style={componentStyles.button} onPress={onPressFunction}>
-      <Text style={componentStyles.buttonText}>{buttonTitle}</Text>
+    <Pressable
+      style={componentStyles.button}
+      onPress={onPressFunction}
+      {...pressableProps}
+    >
+      <Text style={componentStyles.buttonText} {...textProps}>
+        {buttonTitle}
+      </Text>
     </Pressable>
   );
 };
