@@ -4,7 +4,7 @@
     "slug": "gpt-autopilot",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/GPT-Autopilot icon.png",
+    "icon": "./assets/GPT-Autopilot-icon.png",
     "scheme": "gpt-autopilot",
     "userInterfaceStyle": "light",
     "splash": {
@@ -12,40 +12,20 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "xyz.asifiqbal.gptautopilot",
-      "infoPlist": {
-        "CFBundleURLTypes": [
-          {
-            "CFBundleURLSchemes": [
-              "com.googleusercontent.apps.668116692023-l3i3tsd3ojgojvsqjr0he5h2p833vr9i"
-            ]
-          }
-        ]
-      }
+      "ios.bundleIdentifier": "xyz.asifiqbal.gpt-autopilot"
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/GPT-Autopilot icon.png",
+        "foregroundImage": "./assets/GPT-Autopilot-icon.png",
         "backgroundColor": "#ffffff"
-      },
-      "package": "xyz.asifiqbal.gptautopilot"
+      }
     },
     "web": {
       "favicon": "./assets/GPT-favicon.png",
       "bundler": "metro"
-    },
-    "plugins": [
-      "@react-native-google-signin/google-signin"
-    ],
-    "extra": {
-      "eas": {
-        "projectId": "b75600f0-c122-484d-bdc4-7b8d628459c0"
-      }
     }
   }
 }
