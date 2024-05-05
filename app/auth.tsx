@@ -1,16 +1,16 @@
-import React, { useState, Dispatch, SetStateAction, useEffect } from "react";
+import React, { useState, Dispatch, SetStateAction } from "react";
 import { View, Text, StyleSheet, Modal, TextInput } from "react-native";
-import { GoogleSigninButton } from "@react-native-google-signin/google-signin";
-import { signinGoogle, configureGoogleSignIn } from "../src/utils/";
+// import { GoogleSigninButton } from "@react-native-google-signin/google-signin";
+// import { signinGoogle, configureGoogleSignIn } from "../src/utils/";
 import { PasswordInput, CustomButton } from "../src/components/";
 import { bodyStyles, formStyle } from "../src/components/";
 
-interface ModalProps {
+interface AuthModalProps {
   modalVisible: boolean;
   setModalVisible: Dispatch<SetStateAction<boolean>>;
 }
 
-const LoginModal: React.FC<ModalProps> = ({
+const LoginModal: React.FC<AuthModalProps> = ({
   modalVisible,
   setModalVisible,
 }) => {
@@ -50,7 +50,7 @@ const LoginModal: React.FC<ModalProps> = ({
   );
 };
 
-const SignupModal: React.FC<ModalProps> = ({
+const SignupModal: React.FC<AuthModalProps> = ({
   modalVisible,
   setModalVisible,
 }) => {
@@ -136,16 +136,16 @@ const SignupButton = () => {
 };
 
 export const AuthScreen = () => {
-  const [isSignedIn, setIsSignedIn] = useState(false);
-  const [userInfo, setUserInfo] = useState<any>(undefined);
-  const [error, setError] = useState<any>(undefined);
-  useEffect(() => {
-    configureGoogleSignIn();
-  });
+  // const [isSignedIn, setIsSignedIn] = useState(false);
+  // const [userInfo, setUserInfo] = useState<any>(undefined);
+  // const [error, setError] = useState<any>(undefined);
+  // useEffect(() => {
+  //   configureGoogleSignIn();
+  // });
 
-  const handleSignIn = async () => {
-    await signinGoogle(setIsSignedIn, setUserInfo, setError);
-  };
+  // const handleSignIn = async () => {
+  //   await signinGoogle(setIsSignedIn, setUserInfo, setError);
+  // };
 
   return (
     <View style={bodyStyles.container}>
@@ -157,17 +157,17 @@ export const AuthScreen = () => {
         <LoginButton />
         <SignupButton />
       </View>
-      <View
+      {/* <View
         style={{
           borderBottomColor: "black",
           borderBottomWidth: StyleSheet.hairlineWidth,
         }}
-      />
-      <GoogleSigninButton
+      /> */}
+      {/* <GoogleSigninButton
         size={GoogleSigninButton.Size.Standard}
         color={GoogleSigninButton.Color.Dark}
         onPress={handleSignIn}
-      />
+      /> */}
     </View>
   );
 };
