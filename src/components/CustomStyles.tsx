@@ -24,6 +24,11 @@ export const bodyStyles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  settingsButtonContainer: {
+    position: "absolute",
+    right: 10,
+    top: 10,
+  },
 });
 
 export const formStyle = StyleSheet.create({

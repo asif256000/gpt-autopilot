@@ -8,6 +8,7 @@ import {
   TextProps,
 } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { Ionicons } from "@expo/vector-icons";
 import { componentStyles, formStyle } from "./CustomStyles";
 
 type PasswordInputProps = {
@@ -21,6 +22,12 @@ interface CustomButtonProps {
   onPressFunction: () => void;
   pressableProps?: PressableProps;
   textProps?: TextProps;
+}
+
+interface SettingsButtonProps {
+  size?: number;
+  color?: string;
+  onPressFunction: () => void;
 }
 
 export const PasswordInput: React.FC<PasswordInputProps> = (props) => {
@@ -67,5 +74,20 @@ export const CustomButton: React.FC<CustomButtonProps> = ({
         {buttonTitle}
       </Text>
     </Pressable>
+  );
+};
+
+export const SettingsButton: React.FC<SettingsButtonProps> = ({
+  size = 24,
+  color = "#000",
+  onPressFunction,
+}) => {
+  return (
+    <Ionicons
+      name="settings-outline"
+      size={size}
+      color={color}
+      onPress={onPressFunction}
+    />
   );
 };
