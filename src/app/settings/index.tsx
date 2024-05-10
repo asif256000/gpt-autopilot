@@ -1,12 +1,14 @@
 import React, { useState, Dispatch, SetStateAction } from "react";
-import { Modal, TextInput, View, Text, StyleSheet } from "react-native";
-import { router, useRouter } from "expo-router";
-import { formStyle, bodyStyles, CustomButton } from "../src/components";
+import { View, Modal, TextInput, Text } from "react-native";
+import { router } from "expo-router";
+import {
+  formStyle,
+  bodyStyles,
+  CustomButton,
+  ModalProps,
+} from "../../components";
+// import { useTheme } from "../../src/context";
 
-interface ModalProps {
-  modalVisible: boolean;
-  setModalVisible: Dispatch<SetStateAction<boolean>>;
-}
 interface APIKeyModalProps extends ModalProps {
   apiKey: string;
   setApiKey: Dispatch<SetStateAction<string>>;
@@ -51,27 +53,26 @@ const APIKeyModal: React.FC<APIKeyModalProps> = ({
             onPressFunction={() => handleApiKeyPress(apiKey)}
           />
         </View>
-        <View
-          style={{
-            borderBottomColor: "black",
-            borderBottomWidth: StyleSheet.hairlineWidth,
-          }}
-        />
       </View>
     </Modal>
   );
 };
 
-export const SettingsScreen = () => {
+// function ToggleTheme() {
+//   const { toggleTheme } = useTheme();
+//   toggleTheme();
+// }
+
+export default function SettingsScreen() {
   const [modalVisible, setModalVisible] = useState(false);
   const [apiKey, setApiKey] = useState("");
 
   return (
-    <View style={styles.container}>
+    <View style={[bodyStyles.container, bodyStyles.buttonContainer]}>
       <CustomButton
-        buttonTitle="Login / Create Account"
-        onPressFunction={() => router.navigate("/auth")}
-        pressableProps={{ disabled: true }}
+        buttonTitle="Login / Signup"
+        onPressFunction={() => router.push("settings/auth")}
+        // pressableProps={{ disabled: true }}
       />
       <CustomButton
         buttonTitle="Enter OpenAI API Key"
@@ -85,27 +86,12 @@ export const SettingsScreen = () => {
       />
       <CustomButton
         buttonTitle="Toggle Theme"
-        onPressFunction={() => console.log("Theme toggled")}
+        onPressFunction={() => console.log("Theme toggled!")}
+      />
+      <CustomButton
+        buttonTitle="Go Back"
+        onPressFunction={() => router.back()}
       />
     </View>
   );
-};
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    padding: 16,
-  },
-  modalContainer: {
-    flex: 1,
-    justifyContent: "center",
-    padding: 16,
-  },
-  input: {
-    height: 40,
-    borderColor: "gray",
-    borderWidth: 1,
-    marginBottom: 16,
-  },
-});
+}
