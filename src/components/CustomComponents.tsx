@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState, Dispatch, SetStateAction } from "react";
 import {
   View,
   TextInput,
@@ -28,6 +28,11 @@ interface SettingsButtonProps {
   size?: number;
   color?: string;
   onPressFunction: () => void;
+}
+
+export interface ModalProps {
+  modalVisible: boolean;
+  setModalVisible: Dispatch<SetStateAction<boolean>>;
 }
 
 export const PasswordInput: React.FC<PasswordInputProps> = (props) => {
