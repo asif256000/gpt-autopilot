@@ -1,6 +1,6 @@
 import React, { useState, Dispatch, SetStateAction } from "react";
 import { View, Modal, TextInput, Text } from "react-native";
-import { router } from "expo-router";
+import { router, useNavigation } from "expo-router";
 import {
   formStyle,
   bodyStyles,
@@ -66,12 +66,13 @@ const APIKeyModal: React.FC<APIKeyModalProps> = ({
 export default function SettingsScreen() {
   const [modalVisible, setModalVisible] = useState(false);
   const [apiKey, setApiKey] = useState("");
+  const navigation = useNavigation();
 
   return (
     <View style={[bodyStyles.container, bodyStyles.buttonContainer]}>
       <CustomButton
         buttonTitle="Login / Signup"
-        onPressFunction={() => router.push("settings/auth")}
+        onPressFunction={() => navigation.navigate("auth")}
         // pressableProps={{ disabled: true }}
       />
       <CustomButton

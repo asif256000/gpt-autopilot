@@ -1,4 +1,4 @@
-import { Stack, router } from "expo-router";
+import { Stack, router, useNavigation } from "expo-router";
 import {
   ThemeProvider,
   DefaultTheme,
@@ -10,17 +10,18 @@ import { SettingsButton } from "../components";
 
 export default function HomePageLayout() {
   const colorScheme = useColorScheme();
+  const navigation = useNavigation();
   return (
     // <CustomThemeProvider></CustomThemeProvider>
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
       <StatusBar barStyle="default" />
       <Stack
         screenOptions={{
-          headerShown: false,
+          headerShown: true,
           headerTintColor: "white",
           headerStyle: { backgroundColor: "black" },
           headerTitleStyle: { fontWeight: "bold" },
-          headerBackTitleVisible: false,
+          // headerBackTitleVisible: false,
         }}
       >
         <Stack.Screen

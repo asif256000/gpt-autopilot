@@ -12,10 +12,13 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true,
-      "ios.bundleIdentifier": "xyz.asifiqbal.gpt-autopilot"
+      "ios.bundleIdentifier": "xyz.asifiqbal.gpt-autopilot",
+      "bundleIdentifier": "com.anonymous.gpt-autopilot"
     },
     "android": {
       "adaptiveIcon": {

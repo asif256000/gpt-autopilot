@@ -1,22 +1,15 @@
 import { Stack, router } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import { Platform } from "react-native";
+import SettingsScreen from ".";
 
 export default function SettingsLayout() {
   const backIcon = Platform.OS === "ios" ? "chevron-back" : "arrow-back-sharp";
 
   return (
-    <Stack
-      screenOptions={{
-        headerShown: true,
-        headerTintColor: "white",
-        headerStyle: { backgroundColor: "black" },
-        headerTitleStyle: { fontWeight: "bold" },
-        headerBackTitleVisible: false,
-      }}
-    >
+    <Stack screenOptions={{ headerShown: true }}>
       <Stack.Screen
-        name="index"
+        name="settings"
         options={{
           title: "Settings",
           // headerLeft: () => (
@@ -31,5 +24,6 @@ export default function SettingsLayout() {
       />
       <Stack.Screen name="auth" options={{ title: "Authorize" }} />
     </Stack>
+    // <SettingsScreen></SettingsScreen>
   );
 }
