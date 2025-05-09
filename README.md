@@ -1,22 +1,28 @@
 # GPT Autopilot
 
-I wanted to use my own OpenAI API Key instead of paying every month for ChatGPT. I also wanted to make use of the various tools that OpenAI keeps releasing.
+This project integrates OpenAI’s API and various AI tools to deliver a user-friendly experience for exploring AI-driven functionalities. The aim is to create an application where users can interact naturally with GPT-based models and other services for a range of tasks.
 
-From there came the idea of this autopilot.
+## Goals and Features
 
-I was learning expo at the time, and I thought it might be a good time to use what little knowledge I had and gather even more knowledge, by trying to build an usable app where I can forget about all my problems by talking to a non-human, but human-like AI.
+- **General Chat**: Converse with GPT models, selecting the preferred model version.
+- **Assistants**: Define and use specialized assistants for targeted tasks.
+- **Image Generation**: Generate images using models like DALL·E.
+- **Speech Capabilities**: Implement text-to-speech and speech-to-text.
+- **Image Analysis**: Upload an image and receive automated descriptions.
+- **File Uploads**: Explore support for uploading various file formats (png, jpg, csv, xlsx, docx, etc.).
+- **Moderation**: Integrate chat moderation in future releases.
+- **Authentication and Authorization**: Protect user data across multiple devices with a potential FastAPI backend.
 
-My plan is to use this to learn more about TypeScript, React, and building user facing software that can handle basic user requests.
+## Roadmap
 
-I plan to build the following features eventually in the app:
+Development is ongoing. Check off items as they are implemented:
 
-- [ ] General chat with GPT model (after choosing which model to use),
-- [ ] Define and use `Assistants` and use them for specific tasks (Click [here](https://platform.openai.com/docs/assistants/overview "Assistants Overview") to learn more about assistants),
-- [ ] Image generation using models like `DALL.E`,
-- [ ] Text-to-Speech and Speech-to-Text capabilities,
-- [ ] Analyzing uploaded images and describe it to the user,
-- [ ] Uploading various files (png, jpg, csv, xlsx, docx etc) in the chat (this is currently supported in ChatGPT, but I have not seen this in the tools that use the API Key)
-- [ ] Moderation of the chats can also be added later on.
-- [ ] I plan to add Authentication and Authorization to the app, so that I can use the app on multiple devices and keep my data secure. This will also need me to create a backend for the app, which I plan to do using FastAPI. But this will add to the cost of the app, so I will keep this as a stretch goal.
-
-All the best to me, I'm not sure how much time I will get to work on this, given that I am also finishing up with my graduation and looking for a job. But hopefully soon it will be usable! 🤞
+- [ ] Create a user-friendly interface
+- [ ] General Chat with GPT
+- [ ] Specialized Assistants
+- [ ] Image Generation (DALL·E)
+- [ ] Text-to-Speech and Speech-to-Text
+- [ ] Image Analysis and Description
+- [ ] File Upload Support
+- [ ] Chat Moderation
+- [ ] Authentication & Authorization
