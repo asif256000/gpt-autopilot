@@ -11,6 +11,7 @@ This project integrates OpenAI’s API and various AI tools to deliver a user-fr
 - **Image Analysis**: Upload an image and receive automated descriptions.
 - **File Uploads**: Explore support for uploading various file formats (png, jpg, csv, xlsx, docx, etc.).
 - **Moderation**: Integrate chat moderation in future releases.
+- **Cross-platform Delivery**: Leverage React Native and Expo to develop an integrated mobile application.
 - **Authentication and Authorization**: Protect user data across multiple devices with a potential FastAPI backend.
 
 ## Roadmap
